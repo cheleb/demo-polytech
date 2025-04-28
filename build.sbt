@@ -1,4 +1,5 @@
 val scala3Version = "3.7.0-RC4"
+val tapirVersion = "1.11.25"
 
 lazy val root = project
   .in(file("."))
@@ -9,6 +10,13 @@ lazy val root = project
     libraryDependencies ++= Seq(
       "dev.zio" %% "zio" % "2.1.17",
       "dev.zio" %% "zio-streams" % "2.1.17",
+      // Tapir dependencies
+      "com.softwaremill.sttp.tapir" %% "tapir-core" % tapirVersion,
+      "com.softwaremill.sttp.tapir" %% "tapir-json-zio" % tapirVersion,
+      "com.softwaremill.sttp.tapir" %% "tapir-zio" % tapirVersion,
+      "com.softwaremill.sttp.tapir" %% "tapir-zio-http-server" % tapirVersion,
+      "com.softwaremill.sttp.tapir" %% "tapir-swagger-ui-bundle" % tapirVersion,
+      // Test dependencies
       "org.scalameta" %% "munit" % "1.0.0" % Test,
       "dev.zio" %% "zio-test" % "2.1.17" % Test,
       "dev.zio" %% "zio-test-sbt" % "2.1.17" % Test

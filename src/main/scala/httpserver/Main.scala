@@ -33,7 +33,7 @@ object Main extends ZIOAppDefault:
     for
       port <- System.envOrElse("PORT", "8080").map(_.toInt)
       _ <- Console.printLine(s"Starting server on http://localhost:$port")
-      _ <- Server.serve(httpApp).provide(Server.defaultWithPort(port))
+      _ <- Server.serve(httpApp) // .provide(Server.defaultWithPort(port))
     yield ()
 
-  def run = serverProgram
+  def run = serverProgram.provide(Server.defaultWithPort(8080))

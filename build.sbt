@@ -16,7 +16,11 @@ lazy val root = project
       "com.softwaremill.sttp.tapir" %% "tapir-zio" % tapirVersion,
       "com.softwaremill.sttp.tapir" %% "tapir-zio-http-server" % tapirVersion,
       "com.softwaremill.sttp.tapir" %% "tapir-swagger-ui-bundle" % tapirVersion,
-      // Test dependencies
+      "com.softwaremill.sttp.tapir" %% "tapir-sttp-client4" % tapirVersion,
+
+      // STTP dependencies
+      "com.softwaremill.sttp.client4" %% "core" % "4.0.2",
+      "com.softwaremill.sttp.client4" %% "zio" % "4.0.2",
       "org.scalameta" %% "munit" % "1.0.0" % Test,
       "dev.zio" %% "zio-test" % "2.1.17" % Test,
       "dev.zio" %% "zio-test-sbt" % "2.1.17" % Test

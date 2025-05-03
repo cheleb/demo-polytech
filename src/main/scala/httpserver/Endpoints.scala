@@ -6,10 +6,11 @@ import sttp.tapir.generic.auto.*
 import sttp.tapir.json.zio.*
 object Endpoints {
   // Endpoint definitions
-  val getUserEndpoint = endpoint.get
-    .in("users" / path[Int]("id"))
-    .out(jsonBody[Option[User]])
-    .description("Get a user by ID")
+  val getUserEndpoint: Endpoint[Unit, Int, Unit, Option[User], Any] =
+    endpoint.get
+      .in("users" / path[Int]("id"))
+      .out(jsonBody[Option[User]])
+      .description("Get a user by ID")
 
   val getAllUsersEndpoint = endpoint.get
     .in("users")
